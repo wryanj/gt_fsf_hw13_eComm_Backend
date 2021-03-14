@@ -1,0 +1,28 @@
+{
+  "name": "gt-fsf-hw13",
+  "version": "1.0.0",
+  "description": "This assignment requires we utilize node js, mySQL and related npm libraries to construct a back-end for an eComm site. Testing for apis will utilize Postman.",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wryanj/gt_fsf_hw13_eComm_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wryanj/gt_fsf_hw13_eComm_Backend/issues"
+  },
+  "homepage": "https://github.com/wryanj/gt_fsf_hw13_eComm_Backend#readme"
+}
