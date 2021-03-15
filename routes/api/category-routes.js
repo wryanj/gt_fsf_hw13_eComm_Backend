@@ -1,28 +1,47 @@
-const router = require('express').Router();
-const { Category, Product } = require('../../models');
+//----------------------------------------------------------------------------------------------
+// IMPORT DEPENDENCIES
+//----------------------------------------------------------------------------------------------
 
-// The `/api/categories` endpoint
+  // Importing the express.router method
+  const router = require('express').Router();
 
-router.get('/', (req, res) => {
-  // find all categories
-  // be sure to include its associated Products
-});
+  // Importing the Category and Product Models from the models directory
+  const { Category, Product } = require('../../models');
 
-router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
-});
+//----------------------------------------------------------------------------------------------
+// DEFINE ROUTES FOR /api/categories endpoint - How does it know to use the.api/categories since I dont specify those in the path below?
+//----------------------------------------------------------------------------------------------
 
-router.post('/', (req, res) => {
-  // create a new category
-});
+  // Route enabling user to get all categories, and their associated products
+  router.get('/', (req, res) => {
+    // find all categories
+    // be sure to include its associated Products
+  });
 
-router.put('/:id', (req, res) => {
-  // update a category by its `id` value
-});
+  // Route enabling users to find a category by id value, and get it's associated products
+  router.get('/:id', (req, res) => {
+    // find one category by its `id` value
+    // be sure to include its associated Products
+  });
 
-router.delete('/:id', (req, res) => {
-  // delete a category by its `id` value
-});
+  // Route enabling users to create a new category via post method
+  router.post('/', (req, res) => {
+    // create a new category
+  });
 
-module.exports = router;
+  // Router enabling customers to update a category by id using a put method
+  router.put('/:id', (req, res) => {
+    // update a category by its `id` value
+  });
+
+  // Route enabling customers to delete a category by id using a delete method
+  router.delete('/:id', (req, res) => {
+    // delete a category by its `id` value
+  });
+
+
+//----------------------------------------------------------------------------------------------
+// EXPORT THE ROUTER MODULE
+//----------------------------------------------------------------------------------------------
+  
+  module.exports = router;

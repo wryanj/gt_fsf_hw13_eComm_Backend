@@ -1,28 +1,45 @@
-const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+//----------------------------------------------------------------------------------------------
+// IMPORT DEPENDENCIES
+//----------------------------------------------------------------------------------------------
+  // Import express.router
+  const router = require('express').Router();
 
-// The `/api/tags` endpoint
+  // Import Tag, Product, Product Tag models from the models directory
+  const { Tag, Product, ProductTag } = require('../../models');
 
-router.get('/', (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
-});
+//----------------------------------------------------------------------------------------------
+// DEFINE ROUTES FOR api/tags ENDPOINT
+//----------------------------------------------------------------------------------------------
 
-router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
-});
+  // Route go get all tags and associated product data
+  router.get('/', (req, res) => {
+    // find all tags
+    // be sure to include its associated Product data
+  });
 
-router.post('/', (req, res) => {
-  // create a new tag
-});
+  // Route to find a single tag by id and include its associated product data
+  router.get('/:id', (req, res) => {
+    // find a single tag by its `id`
+    // be sure to include its associated Product data
+  });
 
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
-});
+  // Route to create a new tag
+  router.post('/', (req, res) => {
+    // create a new tag
+  });
 
-router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
-});
+  // Route to update a tag's name by its id value
+  router.put('/:id', (req, res) => {
+    // update a tag's name by its `id` value
+  });
 
-module.exports = router;
+  // Route to delete a tag by it's id value
+  router.delete('/:id', (req, res) => {
+    // delete on tag by its `id` value
+  });
+
+  //----------------------------------------------------------------------------------------------
+  // EXPORT MODULES
+  //----------------------------------------------------------------------------------------------
+
+    module.exports = router;

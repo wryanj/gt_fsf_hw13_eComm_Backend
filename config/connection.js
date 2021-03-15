@@ -18,7 +18,7 @@
     // Pass in db, un and pw parameters to Sequalize Constructor (using .env to mask sensitive data)
     process.env.DB_NAME,
     process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    process.env.DB_PW,
 
     // Specify host, dialect (using mySQL) and port of your local server
     {
@@ -31,5 +31,6 @@
 //----------------------------------------------------------------------------------------------
 // EXPORT CREATED SEQUALIZE OBJECT
 //----------------------------------------------------------------------------------------------
+
   // Exporting sequlize (which is an instance of Sequalize object) so we can use its methods and properties in other files...
   module.exports = sequelize;
