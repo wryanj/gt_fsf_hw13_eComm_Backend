@@ -1,23 +1,38 @@
-const { Category } = require('../models');
+//----------------------------------------------------------------------------------------------
+// IMPORT DEPENDENCIES
+//----------------------------------------------------------------------------------------------
 
-const categoryData = [
-  {
-    category_name: 'Shirts',
-  },
-  {
-    category_name: 'Shorts',
-  },
-  {
-    category_name: 'Music',
-  },
-  {
-    category_name: 'Hats',
-  },
-  {
-    category_name: 'Shoes',
-  },
-];
+  // Import the Category Model
+  const { Category } = require('../models');
 
-const seedCategories = () => Category.bulkCreate(categoryData);
+//----------------------------------------------------------------------------------------------
+// DEFINE DATA TO INJECT (category_name column)
+//----------------------------------------------------------------------------------------------
+  
+  // Define array of data to seed
+  const categoryData = [
+    {
+      category_name: 'Shirts',
+    },
+    {
+      category_name: 'Shorts',
+    },
+    {
+      category_name: 'Music',
+    },
+    {
+      category_name: 'Hats',
+    },
+    {
+      category_name: 'Shoes',
+    },
+  ];
 
-module.exports = seedCategories;
+  // Create a functoin that bulk creates data using the array of data to seed
+  const seedCategories = () => Category.bulkCreate(categoryData);
+
+//----------------------------------------------------------------------------------------------
+// EXPORT THE MODULE
+//----------------------------------------------------------------------------------------------
+
+  module.exports = seedCategories;

@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------------------
 
   // Importing the model and DataTypes object from our instance of sequalize we created on connection.js
-  const { Model, DataTypes, INTEGER } = require('sequelize');
+  const { Model, DataTypes, INTEGER } = require('sequelize'); 
 
   // Importing the sequalize instance we defined in connection.js
   const sequelize = require('../config/connection.js');

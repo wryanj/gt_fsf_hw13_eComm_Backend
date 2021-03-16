@@ -9,7 +9,7 @@
   const sequelize = require('../config/connection');
 
 //----------------------------------------------------------------------------------------------
-// DEFINE CATEGORY MODEL 
+// DEFINE PRODUCTTAG MODEL (JOIN TABLE)
 //----------------------------------------------------------------------------------------------
 
   // Initialize ProductTag Class by extending off Sequelize's Model class

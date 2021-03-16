@@ -9,7 +9,7 @@
   const sequelize = require('../config/connection');
 
 //----------------------------------------------------------------------------------------------
-// DEFINE CATEGORY MODEL 
+// DEFINE PRODUCT MODEL 
 //----------------------------------------------------------------------------------------------
 
   // Initialize Product class by extending off Sequelize's Model class

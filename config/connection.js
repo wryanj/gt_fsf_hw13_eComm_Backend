@@ -5,7 +5,7 @@
   // Require dotenv for use of env file for db name, user name and pw
   require('dotenv').config();
 
-  // Require Sequalize (Capital S implies we refer here to the library itself. This is what we require here)
+  // Require Sequalize (Capital S implies we refer here to the library itself. This is what we require here to import the library)
   const Sequelize = require('sequelize');
 
 //----------------------------------------------------------------------------------------------

@@ -28,7 +28,7 @@
 
       // tag name column
       tag_name: {
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
       }
     },
     // Define additional options for the model

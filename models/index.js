@@ -23,8 +23,22 @@
   })
 
   // A product may have many tags (M-M) and a tag may have many products
-  Product.belongsToMany(Tag, {through: ProductTag});
-  Tag.belongsToMany(Product, {through:ProductTag});
+  Product.belongsToMany(Tag, {
+     through: ProductTag 
+  });
+
+  Tag.belongsToMany(Product, {
+    through:ProductTag 
+  });
+
+  /*
+    LEARNING COMMENTARY
+    ProductTag in through is specifying the through table (aka junction table). This means that there is a single model (ProductTag)
+    created with two columns (unless already specified), one for tagID and one for ProductID
+
+    What this lets us do is easily get a product, and see all of its associated tags in the JSON response, or easily get a tag and 
+    see all of its associated products
+  */
 
 
 //----------------------------------------------------------------------------------------------
