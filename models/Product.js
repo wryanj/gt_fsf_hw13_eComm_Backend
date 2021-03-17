@@ -54,6 +54,7 @@
       // category id referencing category id from category table
       category_id: {
         type: DataTypes.INTEGER,
+        allowNull:true,
         references: {
           model: 'category',
           key: 'id'

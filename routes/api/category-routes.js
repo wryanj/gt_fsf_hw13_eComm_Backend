@@ -56,18 +56,16 @@
     });
 
   // Route enabling users to create a new category via post method----------------------------------------
-
-    // Request Body E.x
+    // Request Body
       /* 
         {
-          "category_name": "Category",
+          "category_name": "Category"
         }
       */
 
     // Route
     router.post('/', async (req, res) => {
       try{
-        console.log(req.body);
         const newCategoryData = await Category.create(req.body);
         res.status(200).json(newCategoryData);
       }
@@ -76,15 +74,50 @@
       }
     });
 
-  // Router enabling customers to update a category by id using a put method
-  router.put('/:id', (req, res) => {
-    // update a category by its `id` value
-  });
+  // Router enabling customers to update a category by id using a put method-------------------------------
+    // Request Body
+      /* 
+        {
+          "category_name": "Updated Category"
+        }
+      */
+    
+    // Route
+    router.put('/:id', async (req, res) => {
+      try{
+        await Category.update(
+          {category_name: req.body.category_name},
+          {where: {id: req.params.id}}
+        )
+        res.status(200).send("Update Successful!");
+      }
+      catch(err){
+        res.status(500).json(err);
+      }
+    });
 
-  // Route enabling customers to delete a category by id using a delete method
-  router.delete('/:id', (req, res) => {
-    // delete a category by its `id` value
-  });
+  // Route enabling customers to delete a category by id using a delete method---
+    router.delete('/:id', async (req, res) => {
+      try{
+        await Category.destroy(
+          {where: {id: req.params.id}}
+        )
+        res.status(200).send("Item Deleted Successfully");
+      }
+      catch(err){
+        res.status(500).json(err);
+      }
+    });
+
+     /*
+      NOTE
+
+      I did not cascade this intentionally as it was not specified in the HW. So, 
+      if categories are deleted some products hvae null here and would need to be deleted, 
+      Or potentially just re-assigned
+
+    */
+
 
 
 //----------------------------------------------------------------------------------------------
