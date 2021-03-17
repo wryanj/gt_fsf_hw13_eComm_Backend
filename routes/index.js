@@ -37,7 +37,7 @@
 
     */
   router.use((req, res) => {
-    res.send("<h1>Wrong Route!</h1>")
+    res.send("<h1> This route is not valid. Please double check your path. </h1>")
   });
 
 //----------------------------------------------------------------------------------------------
