@@ -89,20 +89,20 @@
           {category_name: req.body.category_name},
           {where: {id: req.params.id}}
         )
-        res.status(200).send("Update Successful!");
+        res.status(200).send("Category Updated Successfully!");
       }
       catch(err){
         res.status(500).json(err);
       }
     });
 
-  // Route enabling customers to delete a category by id using a delete method---
+  // Route enabling customers to delete a category by id using a delete method----------------------------
     router.delete('/:id', async (req, res) => {
       try{
         await Category.destroy(
           {where: {id: req.params.id}}
         )
-        res.status(200).send("Item Deleted Successfully");
+        res.status(200).send("Category Deleted Successfully");
       }
       catch(err){
         res.status(500).json(err);
