@@ -12,15 +12,43 @@
 //----------------------------------------------------------------------------------------------
 
   // Route to get all products and their associated category and tag data -------------------------
-  router.get('/', (req, res) => {
-    // find all products
-    // be sure to include its associated Category and Tag data
+  router.get('/',  async (req, res) => {
+    try{
+      const productData = await Product.findAll({
+        include:[
+          {
+            model: Category
+          },
+          {
+            model: Tag,
+          }
+        ]
+      }); 
+      res.status(200).json(productData);
+    } 
+    catch(err) {
+      res.status(500).json(err);
+    }
   });
 
   // Route to get a single product by id with associated category and Tag data --------------------
-  router.get('/:id', (req, res) => {
-    // find a single product by its `id`
-    // be sure to include its associated Category and Tag data
+  router.get('/:id', async (req, res) => {
+    try{
+      const productData = await Product.findByPk( req.params.id,{
+        include:[
+          {
+            model: Category
+          },
+          {
+            model: Tag,
+          }
+        ]
+      }); 
+      res.status(200).json(productData);
+    } 
+    catch(err) {
+      res.status(500).json(err);
+    }
   });
 
   // Route to create new product--------------------------------------------------------------------
@@ -29,10 +57,10 @@
     // Request body format should come in as per below
       /* 
         {
-          product_name: "Basketball",
-          price: 200.00,
-          stock: 3,
-          tagIds: [1, 2, 3, 4]
+          "product_name": "Basketball",
+          "price": 200.00,
+          "stock": 3,
+          "tagIds": [1, 2, 3, 4]
         }
       */
 

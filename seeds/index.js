@@ -41,4 +41,5 @@
 // EXECUTE THE SEED ALL FUNCTION
 //----------------------------------------------------------------------------------------------
 
+  // NOTE to run this due to something with scope, do node seeds/index.js (dont cd into this seeds directory and then try and node this)
   seedAll();

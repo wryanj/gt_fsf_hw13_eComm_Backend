@@ -12,7 +12,7 @@
 // DEFINE ROUTES FOR /api/categories ENDPOINT 
 //----------------------------------------------------------------------------------------------
 
-/* 
+  /* 
     LEARNING COMMENTARY
 
     The reason that the paths in the code below specified as "/" or "/:id" are actually the paths for /api/categories is that those routes 
@@ -29,22 +29,52 @@
 
   */
 
-  // Route enabling user to get all categories, and their associated products
-  router.get('/', (req, res) => {
-    // find all categories
-    // be sure to include its associated Products
-  });
+  // Route enabling user to get all categories, and their associated products--------------------------
+    router.get('/', async (req, res) => {
+      try{
+        const categoryData = await Category.findAll({
+          include: Product
+        }); 
+        res.status(200).json(categoryData);
+      } 
+      catch(err) {
+        res.status(500).json(err);
+      }
+    });
 
-  // Route enabling users to find a category by id value, and get it's associated products
-  router.get('/:id', (req, res) => {
-    // find one category by its `id` value
-    // be sure to include its associated Products
-  });
+  // Route enabling users to find a category by id value, and get it's associated products---------------
+    router.get('/:id', async (req, res) => {
+      try{
+        const categoryData = await Category.findByPk( req.params.id, {
+          include: Product
+        }); 
+        res.status(200).json(categoryData);
+      } 
+      catch(err) {
+        res.status(500).json(err);
+      }
+    });
 
-  // Route enabling users to create a new category via post method
-  router.post('/', (req, res) => {
-    // create a new category
-  });
+  // Route enabling users to create a new category via post method----------------------------------------
+
+    // Request Body E.x
+      /* 
+        {
+          "category_name": "Category",
+        }
+      */
+
+    // Route
+    router.post('/', async (req, res) => {
+      try{
+        console.log(req.body);
+        const newCategoryData = await Category.create(req.body);
+        res.status(200).json(newCategoryData);
+      }
+      catch(err){
+        res.status(500).json(err);
+      }
+    });
 
   // Router enabling customers to update a category by id using a put method
   router.put('/:id', (req, res) => {
